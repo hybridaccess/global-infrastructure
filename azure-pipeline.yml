@@ -48,7 +48,6 @@ stages:
   jobs:
   - job: Bootstrap_Subscription
     steps:
-    - script: echo Performing Subscription Bootstrap!
     - template: pipeline-steps/bootstrap.yml
       parameters:
         - serviceConnection: {{ variables.serviceConnection }}
