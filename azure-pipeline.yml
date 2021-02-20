@@ -37,7 +37,7 @@ variables:
   value: Global-Infrastructure
 
 # Define build numbering pattern
-name: "${{ parameters.deploy_location}}-${{ parameters.deploy_environment }}-${{ parameters.build_action }}-$(Date:yyyyMMdd-HHmm)"
+name: "$(Date:yyyyMMdd-HHmm)-${{ parameters.deploy_location}}-${{ parameters.deploy_environment }}-${{ parameters.build_action }}"
 
 
 stages:
