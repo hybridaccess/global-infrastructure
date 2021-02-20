@@ -1,5 +1,39 @@
+parameters:
+- name: run_Stage
+  displayName: Pipeline stage to run
+  type: string
+  default: CI
+  values:
+    - CI
+    - Apply
 
-name: Global-Infrastructure-Pipeline
+- name: location
+  displayName: Azure region
+  type: string
+  default: uksouth
+  values:
+    - uksouth
+    - ukwest
+  
+- name: environment
+  displayName: Deploy environment
+  type: string
+  default: sandbox
+  values:
+    - sandbox
+    - test
+    - dev
+    - staging
+    - prod
+
+variables:
+- name: environment
+  value: ${{ parameters.environment }}
+- name: pipelineName
+  value: Global-Infrastructure
+
+name: ${{ parameters.pipelineName }}
+
 stages:
 - stage: Sandbox
   jobs:
