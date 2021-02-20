@@ -32,7 +32,7 @@ variables:
 - name: pipelineName
   value: Global-Infrastructure
 
-name: ${{ parameters.pipelineName }}
+name: ${{ variables.pipelineName }}
 
 stages:
 - stage: Sandbox
