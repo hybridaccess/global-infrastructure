@@ -22,7 +22,7 @@ parameters:
 - name: deploy_environment
   displayName: Deploy Environment
   type: string
-  default: sandbox
+  default: Sandbox
   values:
     - Sandbox
     - Test
