@@ -46,7 +46,7 @@ stages:
   - job: BuildJob
     steps:
     - script: echo Building!
-- stage: Core-Infrastructure
+- stage: Core
   jobs:
   - job: TestOnWindows
     steps:
@@ -54,7 +54,7 @@ stages:
   - job: TestOnLinux
     steps:
     - script: echo Testing on Linux!
-- stage: Network-Infastructure
+- stage: Network
   jobs:
   - job: Deploy
     steps:
