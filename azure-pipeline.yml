@@ -1,15 +1,16 @@
 parameters:
 - name: build_Action
-  displayName: Pipeline stage to run
+  displayName: Pipeline Action
   type: string
   default: CI
   values:
     - CI
     - Apply
     - Destroy
+    - Test
 
 - name: deploy_location
-  displayName: Azure region
+  displayName: Cloud Region
   type: string
   default: uksouth
   values:
@@ -19,15 +20,15 @@ parameters:
     - northeurope
   
 - name: deploy_environment
-  displayName: Deploy environment
+  displayName: Deploy Environment
   type: string
   default: sandbox
   values:
-    - sandbox
-    - test
-    - dev
-    - staging
-    - prod
+    - Sandbox
+    - Test
+    - Dev
+    - Staging
+    - Prod
 
 variables:
 - name: environment
@@ -40,12 +41,12 @@ name: "Pipeline-Run-#-$(Date:yyyyMMdd)"
 
 
 stages:
-- stage: Sandbox
+- stage: Bootstrap
   jobs:
   - job: BuildJob
     steps:
     - script: echo Building!
-- stage: Dev
+- stage: Core-Infrastructure
   jobs:
   - job: TestOnWindows
     steps:
@@ -53,7 +54,7 @@ stages:
   - job: TestOnLinux
     steps:
     - script: echo Testing on Linux!
-- stage: Test
+- stage: Network-Infastructure
   jobs:
   - job: Deploy
     steps:
