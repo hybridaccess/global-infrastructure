@@ -32,7 +32,9 @@ variables:
 - name: pipelineName
   value: Global-Infrastructure
 
-name: ${{ variables.pipelineName }}
+# Define build numbering pattern
+name: "Pipeline-Run-#-$(Date:yyyyMMdd)"
+
 
 stages:
 - stage: Sandbox
