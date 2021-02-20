@@ -1,5 +1,5 @@
 parameters:
-- name: run_Stage
+- name: build_Action
   displayName: Pipeline stage to run
   type: string
   default: CI
@@ -8,15 +8,17 @@ parameters:
     - Apply
     - Destroy
 
-- name: location
+- name: deploy_location
   displayName: Azure region
   type: string
   default: uksouth
   values:
     - uksouth
     - ukwest
+    - westeurope
+    - northeurope
   
-- name: environment
+- name: deploy_environment
   displayName: Deploy environment
   type: string
   default: sandbox
