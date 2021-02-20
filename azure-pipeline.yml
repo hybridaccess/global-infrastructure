@@ -41,3 +41,14 @@ variables:
 # Define build numbering pattern
 name: "$(Date:yyyyMMdd-HHmm)-${{ parameters.deploy_location}}-${{ parameters.deploy_environment }}-${{ parameters.build_action }}"
 
+
+stages:
+- stage: Bootstrap
+  jobs:
+  - job: Bootstrap_Subscription
+    steps:
+    - template: 'pipeline-steps/bootstrap.yml'
+      parameters:
+        serviceConnection: {{ variables.serviceConnection }}
+        environment: {{ variables.environment }}
+
