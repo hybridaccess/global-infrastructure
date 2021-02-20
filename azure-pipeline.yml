@@ -53,19 +53,3 @@ stages:
         serviceConnection: {{ variables.serviceConnection }}
         environment: {{ variables.environment }}
 
-- stage: Core
-  jobs:
-  - job: TestOnWindows
-    steps:
-    - script: echo Testing on Windows!
-  - job: TestOnLinux
-    steps:
-    - script: echo Testing on Linux!
-
-- stage: Network
-  jobs:
-  - job: Deploy
-    steps:
-    - script: echo Deploying the code!
-
-
