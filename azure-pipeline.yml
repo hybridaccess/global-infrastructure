@@ -1,5 +1,5 @@
 parameters:
-- name: build_Action
+- name: build_action
   displayName: Pipeline Action
   type: string
   default: CI
@@ -32,12 +32,12 @@ parameters:
 
 variables:
 - name: environment
-  value: ${{ parameters.environment }}
+  value: ${{ parameters.deploy_environment }}
 - name: pipelineName
   value: Global-Infrastructure
 
 # Define build numbering pattern
-name: "Pipeline-Run-#-$(Date:yyyyMMdd)"
+name: "Pipeline-Run-#-${{ parameters.deploy_location}}-${{ parameters.deploy_environment }}-${{ parameters.build_action }}-$(Date:yyyyMMdd)"
 
 
 stages:
