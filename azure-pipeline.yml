@@ -48,4 +48,7 @@ stages:
   - job: Bootstrap_Subscription
     steps:
     - template: 'pipeline-steps/bootstrap.yml'
+      parameters:
+        serviceConnection: $(serviceConnection)
+        environment: $(environment)
 
