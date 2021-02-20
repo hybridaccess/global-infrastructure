@@ -1,1 +1,21 @@
-test
+stages:
+- stage: Sandbox
+  jobs:
+  - job: BuildJob
+    steps:
+    - script: echo Building!
+- stage: Dev
+  jobs:
+  - job: TestOnWindows
+    steps:
+    - script: echo Testing on Windows!
+  - job: TestOnLinux
+    steps:
+    - script: echo Testing on Linux!
+- stage: Test
+  jobs:
+  - job: Deploy
+    steps:
+    - script: echo Deploying the code!
+
+
