@@ -6,6 +6,7 @@ parameters:
   values:
     - CI
     - Apply
+    - Destroy
 
 - name: location
   displayName: Azure region
