@@ -35,17 +35,25 @@ variables:
   value: ${{ parameters.deploy_environment }}
 - name: pipelineName
   value: Global-Infrastructure
+- name: serviceConnection
+  value: hax-automation
 
 # Define build numbering pattern
 name: "$(Date:yyyyMMdd-HHmm)-${{ parameters.deploy_location}}-${{ parameters.deploy_environment }}-${{ parameters.build_action }}"
 
 
 stages:
+
 - stage: Bootstrap
   jobs:
-  - job: BuildJob
+  - job: Bootstrap_Subscription
     steps:
-    - script: echo Building!
+    - script: echo Performing Subscription Bootstrap!
+    - template: pipeline-steps/bootstrap.yml
+      parameters:
+        - serviceConnection: {{ variables.serviceConnection }}
+        - environment: {{ variables.environment }}
+
 - stage: Core
   jobs:
   - job: TestOnWindows
@@ -54,6 +62,7 @@ stages:
   - job: TestOnLinux
     steps:
     - script: echo Testing on Linux!
+
 - stage: Network
   jobs:
   - job: Deploy
