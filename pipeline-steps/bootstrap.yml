@@ -12,7 +12,7 @@ steps:
   inputs:
     azureSubscription: ${{ parameters.serviceConnection }}
     scriptType: bash
-    scriptLocation: ./pipeline-steps/scripts
-    scriptPath: bootstrap.sh
+    scriptLocation: scriptPath
+    scriptPath: ./pipeline-steps/scripts/bootstrap.sh
 
 
