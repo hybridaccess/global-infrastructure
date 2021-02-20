@@ -1,3 +1,5 @@
+
+name: Global-Infrastructure-Pipeline
 stages:
 - stage: Sandbox
   jobs:
